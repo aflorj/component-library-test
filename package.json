@@ -1,0 +1,59 @@
+{
+  "name": "component-library-test",
+  "version": "1.0.0",
+  "description": "",
+  "private": false,
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "module": "./build/index.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && webpack",
+    "build-css": "node-sass --include-path ./src/styles --include-path       ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass --include-path ./src/styles     --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "storybook": "start-storybook -p 9062 -s ./public,./src --no-dll watch-css",
+    "build-storybook": "build-storybook -c ./.storybook --output-dir storybook",
+    "start": "npm-run-all -p watch-css storybook"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass-loader": "^12.4.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "exports": {
+    ".": "./build/index.js"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.0"
+  }
+}
